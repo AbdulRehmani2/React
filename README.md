@@ -9,7 +9,7 @@ React divides UI elements into components. Components are independent and reusab
 # Create React App
 Create React App is a tool which is used to setup a basic React App. It includes Webpack to bundle code files and ESlint to highlight errors and mistakes in code.
 It can be easily setup using command:
-  npx create-react-app myapp
+  `npx create-react-app myapp`
 After that, you can enter the directory and start coding.
 You can start the development server using:
-  npm start
+  `npm start`
