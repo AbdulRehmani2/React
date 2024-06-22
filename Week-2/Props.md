@@ -1,6 +1,6 @@
 # Props
 ## Props (Properties):
-Props are a way to pass data from a parent component to a child component in React. They are passed as attributes to the child component in JSX. Here's how you typically define and use props:
+Props are a way to pass data from a parent component to a child component in React. They are passed as attributes to the child component in JSX.
 
 ## Passing Props:
 In the parent component:
@@ -36,9 +36,6 @@ Prop types help catch errors at development time, preventing unexpected behavior
    Prop types act as documentation, clearly stating what data a component expects and how it should be used.
 - **Maintainability**:
   Prop types make code easier to understand and maintain, especially for larger projects with many components.
-  
-
-There are two ways to define prop types:
 
 ## Using PropTypes:  
 The PropTypes object provides various methods for defining prop types. Common methods include:

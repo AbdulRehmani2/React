@@ -1,0 +1,63 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  display: flex;
+  justify-content: center;
+
+  padding: 10rem 0rem;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.testimonial-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: rgb(116, 116, 116);
+  padding: 4rem 2rem;
+  max-width: 40rem;
+  border-radius: 1rem;
+  position: relative;
+}
+
+.testimonial-container>img{
+  position: absolute;
+  bottom: 70%;
+  height: 10rem;
+  width: auto;
+  border-radius: 50%;
+}
+
+.testimonial-container>span{
+  margin: 2rem 5rem;
+}
+
+.testimonial-container>i{
+  margin: 0rem;
+}
+
+@media screen and (max-width: 550px) {
+  .testimonial-container>span{
+    margin: 2rem 2rem;
+  }
+  .testimonial-container>img{
+    bottom: 80%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .testimonial-container>img{
+    bottom: 85%;
+  }
+}

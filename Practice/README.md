@@ -1,0 +1,1 @@
+A small practice example for showing practical use of components, props, useState and useEffect. 
