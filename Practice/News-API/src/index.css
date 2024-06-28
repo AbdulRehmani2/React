@@ -1,0 +1,40 @@
+body{
+  font-family: "Poppins", sans-serif;
+}
+
+.main-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.article-container{
+  border: 2px solid red;
+  width: 42rem;
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.article-container>img{
+  justify-self: center;
+  width: 42rem;
+  height: auto;
+}
+
+.article-container>div>h3{
+  margin-bottom: 0.2rem;
+}
+
+.article-container.long-image{
+  padding-right: 1rem;
+  width: 42rem;
+  grid-template-columns: auto 1fr;
+}
+
+.article-container.long-image>img{
+  grid-row: 3 span;
+  height: 22rem;
+  width: auto;
+}
