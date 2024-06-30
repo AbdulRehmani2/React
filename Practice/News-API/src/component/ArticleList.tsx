@@ -11,15 +11,39 @@ interface ArticleType{
 }
 
 function ArticleList() {
-    useEffect(() => {
-        fetch(url)
-        .then(res => res.json())
-        .then(result => {AddData(result); url = result.next; setIsLoading(false)})
-    }, [])
 
     const [isLoading, setIsLoading] = useState(true)
+    const [url, setUrl] = useState("https://api.spaceflightnewsapi.net/v4/blogs/?limit=10");
+    let prevUrl = "https://api.spaceflightnewsapi.net/v4/blogs/?limit=10";
 
-    let url = "https://api.spaceflightnewsapi.net/v4/blogs/?limit=10";
+    useEffect(() => {
+        function fetchData()
+        {
+            flag == true
+            fetch(url)
+            .then(res => res.json())
+            .then(result => {AddData(result); prevUrl = result.next; setIsLoading(false); flag == false})
+        }
+        !flag && fetchData();
+    }, [url])
+
+    useEffect(() => {
+        function handleScroll()
+        {
+            if(document.body.offsetHeight < scrollY + innerHeight)
+            {
+                window.scrollTo(0, scrollY)
+                setUrl(prevUrl)
+            }
+        }
+
+        document.addEventListener('scroll', handleScroll);
+
+        return () => document.removeEventListener('scroll', handleScroll);
+    }, [])
+
+
+    let flag = false
     const [data, setData] = useState<ArticleType[]>([])
 
     function AddData({results}: any)
@@ -34,13 +58,16 @@ function ArticleList() {
                 date: element.published_at
             }
         })
-        newData.filter((element:ArticleType, index:number, self:ArticleType[]) => {self.indexOf(element) === index})
-        setData([...data, ...newData])
+
+        const filteredData = newData.filter(
+            (newItem: ArticleType) => !data.some(existingItem => existingItem.id === newItem.id)
+        );
+
+        setData(prevData => [...prevData, ...filteredData]);
     }
   return (
     <div>
         {!isLoading ? data.map((element: ArticleType) => {
-            console.log(data);
             return <Article key={element.id} id={element.id} title={element.title} url={element.url} imgUrl={element.imgUrl} summary={element.summary} date={element.date}></Article>
         }) : <h1>Loading...</h1>}
     </div>
