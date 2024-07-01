@@ -30,7 +30,7 @@ function App() {
       <div className='main-container'>
         <h1>Latest News</h1>
         <input type="text" onChange={handleChange} value={value}/>
-        <button onClick={() => {SetIsPressed(false); setUrl(`https://api.spaceflightnewsapi.net/v4/blogs/?limit=10&search=${value}`)}} disabled={disabled}>Search</button>
+        <button onClick={() => {SetIsPressed(false); setUrl(`https://api.spaceflightnewsapi.net/v4/blogs/?limit=5&search=${value}`)}} disabled={disabled}>Search</button>
       </div>
     )
   }

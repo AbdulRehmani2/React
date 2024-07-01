@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 import Article from "./Article"
+import { uniq }from 'lodash'
+
 
 interface ArticleType{
     id: number,
@@ -29,8 +31,6 @@ function ArticleList({ url, setUrl }: ArticleList) {
             .then(result => {AddData(result); prevUrl = result.next; setIsLoading(false); flag == false})
         }
         !flag && fetchData();
-
-        return () => {setData([])}
     }, [url])
 
     useEffect(() => {
@@ -65,9 +65,7 @@ function ArticleList({ url, setUrl }: ArticleList) {
             }
         })
 
-        const filteredData = newData.filter(
-            (newItem: ArticleType) => !data.some(existingItem => existingItem.id === newItem.id)
-        );
+        const filteredData = uniq<ArticleType>(newData);
 
         setData(prevData => [...prevData, ...filteredData]);
     }
