@@ -10,10 +10,14 @@ interface ArticleType{
     date: string
 }
 
-function ArticleList() {
+interface ArticleList{
+    url: string,
+    setUrl: React.Dispatch<React.SetStateAction<string>>
+}
+
+function ArticleList({ url, setUrl }: ArticleList) {
 
     const [isLoading, setIsLoading] = useState(true)
-    const [url, setUrl] = useState("https://api.spaceflightnewsapi.net/v4/blogs/?limit=10");
     let prevUrl = "https://api.spaceflightnewsapi.net/v4/blogs/?limit=10";
 
     useEffect(() => {
@@ -25,6 +29,8 @@ function ArticleList() {
             .then(result => {AddData(result); prevUrl = result.next; setIsLoading(false); flag == false})
         }
         !flag && fetchData();
+
+        return () => {setData([])}
     }, [url])
 
     useEffect(() => {
