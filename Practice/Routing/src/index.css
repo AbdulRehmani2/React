@@ -1,0 +1,30 @@
+body{
+  background-color: rgb(185, 185, 185);
+  padding: 0;
+  margin: 0;
+}
+
+.nav-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  background-color: black;
+  color: white;
+}
+
+.links{
+  border-bottom: 2px solid black;
+  font-size: larger;
+  text-decoration: none;
+  color: white;
+  padding: 1rem 0rem;
+}
+
+.links:hover{
+  border-bottom: 2px solid red;
+}
+
+.links:active{
+  color: red;
+}
