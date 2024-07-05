@@ -1,41 +1,25 @@
-import About from "./components/About"
+import Recipes from "./components/Recipes"
 import { Navbar } from "./components/Navbar"
 import Home from './components/Home'
-import Contact from './components/Contact'
-import { BrowserRouter, Routes, Route, createBrowserRouter, RouterProvider } from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Reviews from "./components/Reviews"
 
 function App() {
-  const router = createBrowserRouter([{
-    path: '/',
-    element: <Navbar></Navbar>,
-    children: [
-      {
-        path: '/home',
-        element: <Home></Home>
-      },
-      {
-        path: '/about',
-        element: <About></About>
-      },
-      {
-        path: '/contact',
-        element: <Contact></Contact>
-      }
-    ]
-  }])
 
   return (
     <>
-      {/* <BrowserRouter>
+      <BrowserRouter>
+        <div className="main-container">
         <Navbar/>
+        <div className="data-container">
         <Routes>
-          <Route path="/" element={<Home></Home>}></Route>
-          <Route path="/about" element={<About></About>}></Route>
-          <Route path="/contact" element={<Contact></Contact>}></Route>
+          <Route path="/" element={<Home />} />
+          <Route path="/recipes" element={<Recipes />} />
+          <Route path="/reviews" element={<Reviews />} />
         </Routes>
-      </BrowserRouter> */}
-      <RouterProvider router={router}>
-      </RouterProvider>
+        </div>
+      </div>
+      </BrowserRouter>
     </>
   )
 }
