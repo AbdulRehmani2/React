@@ -47,6 +47,7 @@ function Reviews() {
 
   return (
     <div className="reviews-container">
+      <h1 style={{textAlign: "center"}}>Reviews</h1>
       {data.map((element) => <Review key={element.id} name={element.dish_name} review={element.review} reviewer={element.reviewer_name}></Review>)}
     </div>
   )

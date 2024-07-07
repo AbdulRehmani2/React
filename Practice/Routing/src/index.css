@@ -53,6 +53,10 @@ body{
   color: red;
 }
 
+.main{
+  font-size: 1.5rem;
+}
+
 .recipes-title{
   text-align: center;
   border-bottom: 3px solid rgb(210, 210, 210);
@@ -64,16 +68,22 @@ body{
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
+  font-size: 1.2rem;
+  padding: 2rem 0rem
 }
 
 .recipe-container{
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem 1rem;
+  padding: 1rem 2rem;
   border-radius: 1rem;
   box-shadow: 2px 2px 2px 2px rgb(202, 202, 202);
   cursor: pointer;
+}
+
+.recipe-container>h3{
+  text-align: center;
 }
 
 .recipe-container>img{
@@ -90,7 +100,19 @@ body{
   font-weight: 600;
 }
 
+.review-container>q{
+  font-size: 1.5rem;
+}
+
 .review-container>div{
   text-align: right;
   font-style: italic;
+  font-size: 1.2rem;
+}
+
+.found-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }

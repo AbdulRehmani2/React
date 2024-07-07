@@ -53,7 +53,7 @@ function Recipes() {
 
   return (
   <>
-    <h2 className="recipes-title">All Recipes</h2>
+    <h1 className="recipes-title">All Recipes</h1>
     <div className="recipes-container">
       {data.map((element: any) => {
         return <Recipe key={element.id} link={element.link} name={element.name} desc={element.description}></Recipe>
@@ -70,7 +70,7 @@ function Recipe({link, name, desc}: Recipe)
     <div className="recipe-container">
       <img src={link} alt="Recipe Image" />
       <h3>{name}</h3>
-      <p>{desc}</p>
+      <p>{desc.slice(0, 100)}...</p>
     </div>
   )
   
