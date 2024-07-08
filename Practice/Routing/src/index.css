@@ -79,11 +79,15 @@ body{
   padding: 1rem 2rem;
   border-radius: 1rem;
   box-shadow: 2px 2px 2px 2px rgb(202, 202, 202);
-  cursor: pointer;
 }
 
-.recipe-container>h3{
+.recipe-container>a{
   text-align: center;
+  text-decoration: none;
+  color: black;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 1rem;
 }
 
 .recipe-container>img{
