@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import axios from "axios"
 
 interface User{
 	name:string,
@@ -15,13 +16,26 @@ function App() {
 	const [isVisible, setIsVisible] = useState(false)
 
 	useEffect(() => {
-		setIsVisible(true)
-		fetch(`https://jsonplaceholder.typicode.com/users/${userID}`)
-		.then((res) => res.json()
-			.then((result) => {getUserData(result); setIsVisible(false)})
+
+		// function getData(url: string)
+		// {
+		// 	fetch(url)
+		// 	.then((res) => res.json()
+		// 		.then((result) => {getUserData(result); setIsVisible(false)})
+		// 		.catch((err) => alert(err))
+		// 	.catch((err) => alert(err)))
+		// }
+
+		function getData(url: string)
+		{
+			axios.get(url)
+			.then((result) => {getUserData(result.data); setIsVisible(false)})
 			.catch((err) => alert(err))
-		.catch((err) => alert(err))
-	)
+		} 
+
+		setIsVisible(true)
+		const url = `https://jsonplaceholder.typicode.com/users/${userID}`
+		getData(url)
 	}, [userID])
 
 	function getUserData(result: any)

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import Article from "./Article"
 import { uniq }from 'lodash'
+import axios from "axios"
 
 
 interface ArticleType{
@@ -23,12 +24,21 @@ function ArticleList({ url, setUrl }: ArticleList) {
     let prevUrl = "https://api.spaceflightnewsapi.net/v4/blogs/?limit=10";
 
     useEffect(() => {
-        function fetchData()
+        // function fetchData()
+        // {
+        //     flag = true
+        //     fetch(url)
+        //     .then(res => res.json())
+        //     .then(result => {AddData(result); prevUrl = result.next; setIsLoading(false); flag = false})
+        // }
+        async function fetchData()
         {
-            flag == true
-            fetch(url)
-            .then(res => res.json())
-            .then(result => {AddData(result); prevUrl = result.next; setIsLoading(false); flag == false})
+            flag = true
+            const response = await axios.get(url)
+            AddData(response.data)
+            prevUrl = response.data.next
+            setIsLoading(false)
+            flag = false
         }
         !flag && fetchData();
     }, [url])
