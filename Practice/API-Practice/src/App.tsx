@@ -34,7 +34,7 @@ function App() {
 		} 
 
 		setIsVisible(true)
-		const url = `https://jsonplaceholder.typicode.com/users/${userID}`
+		const url = `/${userID}`
 		getData(url)
 	}, [userID])
 

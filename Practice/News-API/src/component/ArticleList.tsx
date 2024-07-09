@@ -33,12 +33,20 @@ function ArticleList({ url, setUrl }: ArticleList) {
         // }
         async function fetchData()
         {
-            flag = true
-            const response = await axios.get(url)
-            AddData(response.data)
-            prevUrl = response.data.next
-            setIsLoading(false)
-            flag = false
+            try
+            {
+                flag = true
+                const response = await axios.get(url)
+                AddData(response.data)
+                prevUrl = response.data.next
+                setIsLoading(false)
+                flag = false
+            }
+            catch(err)
+            {
+                flag = false
+                alert(err)
+            }
         }
         !flag && fetchData();
     }, [url])
