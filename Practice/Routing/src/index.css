@@ -3,6 +3,22 @@ body{
   padding: 0;
   margin: 5rem;
   font-family: "Poppins", sans-serif;
+  color: white;
+}
+
+body::before{
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("/background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+  margin: 0;
+  padding: 0;
 }
 
 .main-container{
@@ -18,6 +34,7 @@ body{
   width: 50rem;
   border-radius: 1rem;
   padding: 1rem 3rem;
+  backdrop-filter: blur(20px);
 }
 
 .nav-container{
@@ -26,17 +43,17 @@ body{
   justify-content: center;
   gap: 4rem;
   width: 40rem;
-  background-color: rgb(255, 255, 255);
   box-shadow: 2px 2px 2px 2px rgb(202, 202, 202);
   color: black;
   border-radius: 1rem;
   padding: 1rem 0rem;
+  backdrop-filter: blur(10px);
 }
 
 .links{
   font-size: larger;
   text-decoration: none;
-  color: black;
+  color: white;
   border-bottom: 2px solid white;
 }
 
@@ -73,12 +90,26 @@ body{
 }
 
 .recipe-container{
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1rem 2rem;
   border-radius: 1rem;
-  box-shadow: 2px 2px 2px 2px rgb(202, 202, 202);
+  color: black;
+}
+
+.recipe-container::before{
+  background-color: white;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  opacity: 0.2;
+  z-index: -1;
 }
 
 .recipe-container>a{

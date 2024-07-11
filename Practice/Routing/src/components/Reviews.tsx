@@ -1,3 +1,5 @@
+import { motion } from "framer-motion"
+
 interface Review {
   name: string,
   reviewer: string,
@@ -46,22 +48,23 @@ function Reviews() {
   ]
 
   return (
-    <div className="reviews-container">
+    <motion.div animate={{y: [-10, 0]}} transition={{duration: 0.5}} className="reviews-container">
       <h1 style={{textAlign: "center"}}>Reviews</h1>
       {data.map((element) => <Review key={element.id} name={element.dish_name} review={element.review} reviewer={element.reviewer_name}></Review>)}
-    </div>
+    </motion.div>
   )
 }
 
 function Review({name, reviewer, review}: Review)
 {
   return (
-    <div className="review-container">
+    <motion.div 
+    initial={{opacity: 0, y: -10}} whileInView={{opacity: 1, y: 0}} transition={{duration: 0.5}} className="review-container">
       <p>Dish: {name}</p>
       <q>{review}</q>
       <br />
       <div>{reviewer}</div>
-    </div>
+    </motion.div>
   )
 }
 
