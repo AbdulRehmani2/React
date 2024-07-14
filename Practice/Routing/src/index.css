@@ -50,6 +50,11 @@ body::before{
   backdrop-filter: blur(10px);
 }
 
+.active{
+  color: red;
+  border-bottom: 2px solid red !important;
+}
+
 .links{
   font-size: larger;
   text-decoration: none;
