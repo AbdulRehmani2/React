@@ -1,0 +1,1 @@
+This project involves the use of an API to fetch some random user data and display it on the page. It uses useEffect hook and the dependency array for this purpose.
